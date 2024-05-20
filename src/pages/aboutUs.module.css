@@ -1,0 +1,27 @@
+.aboutUs {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    color: #333;
+    max-width: 800px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .aboutUs h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #2196f3;
+  }
+  
+  .aboutUs p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .aboutUs strong {
+    color: #2196f3;
+  }
+  
