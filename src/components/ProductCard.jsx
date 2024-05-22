@@ -3,7 +3,7 @@ import styles from './productCard.module.css'
 function ProductCard({product}) {
   const [toggleDescription, setToggleDescription] = useState(false)
     console.log("PRODUCT", product)
-    const shortDescription = product.description.substring(0, 50)
+    const shortDescription = product?.description?.substring(0, 50)
     function handleOnClick(){
       
     }

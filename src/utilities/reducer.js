@@ -6,6 +6,8 @@ function reducer(state, action){
         case "removeFromCart":
             let newArr = state.filter(p => p.id !== action.payload.id)
             return [...newArr]
+        default:
+            return state
     }
 }
 

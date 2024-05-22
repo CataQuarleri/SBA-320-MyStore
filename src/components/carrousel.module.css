@@ -1,0 +1,27 @@
+.container {
+    /* width: 90%; */
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.carouselItem {
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

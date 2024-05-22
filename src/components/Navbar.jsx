@@ -1,13 +1,36 @@
-import React, { useState } from 'react';
-import {Link} from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import {Link, useNavigate} from 'react-router-dom'
 import styles from './navbar.module.css';
 import Cart from './Cart.jsx'
-function Navbar({categories}) {
+import axios from 'axios'
+
+
+function Navbar({categories, state, setFilteredProducts}) {
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [allProducts, setAllProducts] = useState([])
+  const [searchInput, setSearchInput] = useState("");
 
+  const navigate = useNavigate()
   const toggleCart = () => setCartOpen(!cartOpen);
   const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const handleSearch = (search)=>{
+    setSearchInput(search)
+   let filter = allProducts.filter(oneProduct => {
+      return Object.values(oneProduct).join('').toLowerCase().includes(searchInput.toLowerCase())
+    })
+    setFilteredProducts(filter)
+    navigate('/search')
+  }
+  useEffect(()=>{
+    async function getProducts(){
+      let response = await axios.get('https://fakestoreapi.com/products')
+      let products = response.data
+      setAllProducts(products)
+    }
+    getProducts()
+  }, [searchInput])
 
   return (
     <>
@@ -17,7 +40,8 @@ function Navbar({categories}) {
           ☰
         </div>
         <div className={`${menuOpen ? styles.menu :  styles.displayNone} ${menuOpen ? styles.menuOpen : ''}`}>
-          <input type="text" placeholder="Search..." className={styles.searchbar} />
+          <input type="text" placeholder="Search..." className={styles.searchbar} onChange={(e)=>handleSearch(e.target.value)} />
+          <div className={styles.searchBtn} name="search" onClick={()=>handleSearch()}>🔍</div>
           <Link to="/" className={styles.link}>HOME</Link>
           <Link to="/about-us" className={styles.link}>ABOUT US</Link>
           <div className={styles.dropdown}>
@@ -30,7 +54,7 @@ function Navbar({categories}) {
           <div className={styles.cartIcon} onClick={toggleCart}>🛒</div>
         </div>
       </nav>
-    <Cart cartOpen={cartOpen} toggleCart={toggleCart}/>
+    <Cart cartOpen={cartOpen} toggleCart={toggleCart} state={state}/>
     </>
   );
 };

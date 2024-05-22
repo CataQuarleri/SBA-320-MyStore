@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './home.module.css';
 import {Link} from 'react-router-dom'
+import Carrousel from '../components/Carrousel.jsx'
 
 function Home({categories, loading}){
   
@@ -17,9 +18,7 @@ function Home({categories, loading}){
 
   return (
     <div className={styles.home}>
-      <div className={styles.carousel}>
-        {/* Carousel content goes here */}
-      </div>
+  <Carrousel />
       <div className={styles.cardsContainer}>
         {loading ? <h1>Loading content...</h1> : loadedContent}
         

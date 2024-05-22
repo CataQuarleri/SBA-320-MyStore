@@ -20,6 +20,7 @@ function Products() {
 
 
 useEffect(()=>{
+
   setLoading(true)
     async function handleLoadProducts(){
         try {
