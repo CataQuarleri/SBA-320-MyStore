@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.jsx'
 
-const BASE_URL = 'https://fakestoreapi.com/products/category'
+// const BASE_URL = 'https://fakestoreapi.com/products/category'
+const BASE_URL = 'https://dummyjson.com/products/category'
 
 function Products() {
 
@@ -25,8 +26,8 @@ useEffect(()=>{
     async function handleLoadProducts(){
         try {
             let response = await axios.get(`${BASE_URL}/${category}`)
-            if(response.data){
-               return  setProducts(response.data)
+            if(response.data.products){
+               return  setProducts(response.data.products)
             }
         } catch (error) {
             console.log("ERROR LOADING PRODUCTS: ", error)

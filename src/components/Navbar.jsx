@@ -25,8 +25,8 @@ function Navbar({categories, state, setFilteredProducts}) {
   }
   useEffect(()=>{
     async function getProducts(){
-      let response = await axios.get('https://fakestoreapi.com/products')
-      let products = response.data
+      let response = await axios.get('https://dummyjson.com/products/search?q=' + searchInput)
+      let products = response.data.products
       setAllProducts(products)
     }
     getProducts()
