@@ -14,7 +14,7 @@ import LogIn from './pages/LogIn.jsx'
 import Products from './pages/Products.jsx'
 import Search from './pages/Search.jsx'
 
-const BASE_URL = 'https://fakestoreapi.com'
+const BASE_URL = 'https://dummyjson.com/products/'
 const initialState = [1, 2, 3]
 function App() {
   const [categories, setCategories] = useState([])

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductCard from '../components/ProductCard.jsx'
 
-// const BASE_URL = 'https://fakestoreapi.com/products/category'
 const BASE_URL = 'https://dummyjson.com/products/category'
 
 function Products() {
@@ -44,7 +43,7 @@ const loaded = products.map(product => (
 ))
   return (
     <>
-        <div className={`${styles.productTitle} ${styles[categoryStyle]}`}>Available {categoryName} products</div>
+        <div className={`${styles.productTitle} ${styles.banner}`}>Available {categoryName} products</div>
     <div className={styles.productContainer}>
         
     {loading ? <h1>Loading products...</h1> : loaded}

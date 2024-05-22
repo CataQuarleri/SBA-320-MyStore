@@ -41,7 +41,7 @@ function Navbar({categories, state, setFilteredProducts}) {
         </div>
         <div className={`${menuOpen ? styles.menu :  styles.displayNone} ${menuOpen ? styles.menuOpen : ''}`}>
           <input type="text" placeholder="Search..." className={styles.searchbar} onChange={(e)=>handleSearch(e.target.value)} />
-          <div className={styles.searchBtn} name="search" onClick={()=>handleSearch()}>🔍</div>
+
           <Link to="/" className={styles.link}>HOME</Link>
           <Link to="/about-us" className={styles.link}>ABOUT US</Link>
           <div className={styles.dropdown}>
