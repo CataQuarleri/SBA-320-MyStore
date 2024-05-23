@@ -26,7 +26,7 @@ useEffect(()=>{
         try {
             let response = await axios.get(`${BASE_URL}/${category}`)
             if(response.data.products){
-              console.log(response.data.products)
+              // console.log(response.data.products)
                return  setProducts(response.data.products)
             }
         } catch (error) {
@@ -39,15 +39,22 @@ useEffect(()=>{
     }
 }, [category])
 
-const loaded = products.map(product => (
-  <ProductCard key={product.id} product={product} />
-))
+function loadedProducts(){
+  if(products.length === 0){
+    return <h2 style={{color: 'black'}}>No products in this category</h2> 
+  }else {
+   return products.map(product => {
+      return <ProductCard key={product.id} product={product} />
+    })
+  }
+}
+
   return (
     <>
         <div className={`${styles.productTitle} ${styles.banner}`}>Available {categoryName} products</div>
     <div className={styles.productContainer}>
         
-    {loading ? <h1>Loading products...</h1> : loaded}
+    {loading ? <h1>Loading products...</h1> : loadedProducts()}
   </div>
   </>
   )

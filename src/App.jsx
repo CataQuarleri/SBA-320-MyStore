@@ -23,8 +23,7 @@ function App() {
   const [cart, dispatch] = useReducer(reducer, initialState)
   async function handleSetCategories(){
     try{
-      // let response = await axios.get(`${BASE_URL}/products/categories`)
-      let response = await axios.get('https://dummyjson.com/products/categories')
+      let response = await axios.get('https://dummyjson.com/products/category-list')
       if(response.data){
         let catData = response.data
         return setCategories(catData)

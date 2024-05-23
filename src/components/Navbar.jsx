@@ -30,6 +30,7 @@ function Navbar({categories, state, setFilteredProducts}) {
       setAllProducts(products)
     }
     getProducts()
+    // return ()=> setSearchInput("")
   }, [searchInput])
 
   return (
@@ -48,7 +49,7 @@ function Navbar({categories, state, setFilteredProducts}) {
           <div className={styles.dropdown}>
             <div className={styles.dropbtn}>PRODUCTS</div>
             <div className={styles.dropdownContent}>
-                {categories.map((item, i) =>  <Link key={i} to={`/products/${item}`} className={styles.dropdownLink}>{item.toUpperCase()}</Link> )}
+                {categories.map((item, i) =>  <Link key={i} to={`/products/${item}`} className={styles.dropdownLink}>{item?.toUpperCase()}</Link> )}
             </div>
           </div>
           <Link to="/login" className={styles.link}>LOGIN/SIGNUP</Link>
