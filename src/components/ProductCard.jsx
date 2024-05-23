@@ -18,7 +18,7 @@ function ProductCard({product}) {
       <div className={styles.descriptionContainer} ><p className={styles.description}>{toggleDescription ? product.description : `${shortDescription}... READ MORE`}</p></div>
       <div className={styles.rating}>
         {Array.from({ length: 5 }, (_, i) => (
-          <span key={i} className={i < product?.rating?.rate ? styles.filledStar : styles.emptyStar}>★</span>
+          <span key={i} className={i < product?.rating ? styles.filledStar : styles.emptyStar}>★</span>
         ))}
       </div>
       <button className={styles.addToCartButton} onClick={()=> handleOnClick}>Add to cart</button>

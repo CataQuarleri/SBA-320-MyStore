@@ -26,6 +26,7 @@ useEffect(()=>{
         try {
             let response = await axios.get(`${BASE_URL}/${category}`)
             if(response.data.products){
+              console.log(response.data.products)
                return  setProducts(response.data.products)
             }
         } catch (error) {

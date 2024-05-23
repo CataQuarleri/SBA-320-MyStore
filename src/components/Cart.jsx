@@ -4,13 +4,15 @@ import CartItem from './CartItem.jsx'
 
 function Cart({cartOpen, toggleCart, state}) {
   return (
-   <>
-         <div className={`${styles.cartMenu} ${cartOpen ? styles.cartMenuOpen : ''}`}>
-            <h4>Your cart has {state.length} items</h4>
-        <CartItem />
-      </div>
-      {cartOpen && <div className={styles.overlay} onClick={toggleCart}></div>}
-   </>
+    <>
+    <div className={`${styles.cartMenu} ${cartOpen ? styles.cartMenuOpen : ''}`}>
+    <h4>Your cart has {state.length} items</h4>
+    {state.map((item, index) => (
+      <CartItem key={index} item={item} />
+    ))}
+  </div>
+  {cartOpen && <div className={styles.overlay} onClick={toggleCart}></div>}
+</>
   )
 }
 

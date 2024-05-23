@@ -1,16 +1,17 @@
-import React from 'react'
+import styles from './navbar.module.css'
 
-function CartItem() {
+function CartItem({item}) {
   return (
-    <>
-    <div>Product Title</div>
-    <div>Price</div>
-    <div>
-    <span>Rest one AMOUNT Add one</span>
-    <span>REMOVE FROM CART</span>
+    <div className={styles.cartItem}>
+      <div>{item.title}</div>
+      <div>{item.price}</div>
+      <div className={styles.cartItemActions}>
+        <span onClick={()=>{}}>−</span>
+        <span>{item.amount}</span>
+        <span onClick={()=>{}}>+</span>
+        <button onClick={()=>{}}>Remove</button>
+      </div>
     </div>
-
-    </>
   )
 }
 
