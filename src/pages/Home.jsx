@@ -5,9 +5,9 @@ import Carrousel from '../components/Carrousel.jsx'
 
 function Home({categories, loading}){
   
-     const loadedContent =  categories.map((item, i)=>{
-      const colorIndex = i + 1
-      const style = { backgroundColor: `var(--color-${colorIndex})` } //sets background color for category card card
+const loadedContent =  categories.map((item, i)=>{ //Save loaded in variable to easily render map
+              const colorIndex = i + 1
+               const style = { backgroundColor: `var(--color-${colorIndex})` } //sets background color for category card card
                return (<Link to={'/products/' + item} key={i} className={styles.card} style={style}>
                 <h3>{item.toUpperCase()}</h3>
               </Link>)
@@ -16,7 +16,7 @@ function Home({categories, loading}){
 
   return (
     <div className={styles.home}>
-  <Carrousel />
+      <Carrousel />
       <div className={styles.cardsContainer}>
         {loading ? <h1>Loading content...</h1> : loadedContent}
       </div>

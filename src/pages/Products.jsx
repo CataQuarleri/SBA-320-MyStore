@@ -7,22 +7,15 @@ import ProductCard from '../components/ProductCard.jsx'
 const BASE_URL = 'https://dummyjson.com/products/category'
 
 function Products({dispatch}) {
+const [products, setProducts]=useState([]) //saves products from category that comes from params
+const [loading, setLoading]=useState(true) //manages loading messages
 
-    const [products, setProducts]=useState([])
-    const [loading, setLoading]=useState(true)
+let {category} = useParams() //comes from url
+let categoryName = category.charAt(0).toUpperCase() + category.slice(1) //first letter to upper case
 
-    let {category} = useParams() 
-
-    let categoryStyle = category.replace(/'/, "")
-    categoryStyle = categoryStyle.replace(/\s/, "") //replacing apostrophe and whitespace to fit style name
-
-    let categoryName = category.charAt(0).toUpperCase() + category.slice(1) //first letter to upper case
-console.log(products)
-
-useEffect(()=>{
-
+useEffect(()=>{ //triggered when params change
   setLoading(true)
-    async function handleLoadProducts(){
+    async function handleLoadProducts(){ //fetches products from API
         try {
             let response = await axios.get(`${BASE_URL}/${category}`)
             if(response.data.products){
@@ -34,12 +27,12 @@ useEffect(()=>{
         }
     }
     handleLoadProducts()
-    if(handleLoadProducts){
+    if(handleLoadProducts){ //confirms products loaded to set loading to false
       setLoading(false)
     }
 }, [category])
 
-function loadedProducts(){
+function loadedProducts(){ //maps products to render and sets error message in case there are no products in category
   if(products.length === 0){
     return <h2 style={{color: 'black'}}>No products in this category</h2> 
   }else {
@@ -51,12 +44,13 @@ function loadedProducts(){
 
   return (
     <>
-        <div className={`${styles.productTitle} ${styles.banner}`}>Available {categoryName} products</div>
-    <div className={styles.productContainer}>
-        
-    {loading ? <h1>Loading products...</h1> : loadedProducts()}
-  </div>
-  </>
+      <div className={`${styles.productTitle} ${styles.banner}`}>
+        Available {categoryName} products
+      </div>
+      <div className={styles.productContainer}>
+          {loading ? <h1>Loading products...</h1> : loadedProducts()}
+      </div>
+    </>
   )
 }
 

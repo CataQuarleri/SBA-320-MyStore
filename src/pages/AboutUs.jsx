@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './aboutUs.module.css';
 
-function AboutUs(){
+function AboutUs(){ //Just a simple aboutus page
   return (
     <div className={styles.aboutUs}>
       <h1>About Us</h1>
