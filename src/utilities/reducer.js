@@ -2,16 +2,22 @@
 function reducer(state, action){
     switch(action.type){
         case "addToCart":
-
-            return void(state.map(p => {
-                if(p.product.id === action.payload.product.id){
-                    p.amount = p.amount + 1
-                }else {
-                    return [...state, action.payload]
-                }
-            }))
+            let existingItem = state.find(p => p.product.id === action.payload.product.id)
+            console.log(existingItem)
+            if(existingItem){
+                return void(state.map(p => {
+                    if(p.product.id === action.payload.product.id){
+    
+                        p.amount = p.amount + 1
+                    }else {
+                        return
+                    }
+                }))
+            } else {
+                return [...state, action.payload]
+            }
         case "removeFromCart":
-            let newArr = state.filter(p => p.id !== action.payload.id)
+            let newArr = state.filter(p => p.product.id !== action.payload.product.id)
             return [...newArr]
         case "restOneOfItem":
             
