@@ -1,17 +1,20 @@
 import styles from './navbar.module.css'
 
-function CartItem({item}) {
+function CartItem({item, dispatch}) {
   return (
+    <>
+      <div style={{color: 'white'}}>{item.product.title}</div>
     <div className={styles.cartItem}>
-      <div>{item.title}</div>
-      <div>{item.price}</div>
+      <img style={{maxWidth: '100px'}} src={item.product.thumbnail} alt={item.product.title} />
+      <div>{item.product.price}</div>
       <div className={styles.cartItemActions}>
-        <span onClick={()=>{}}>−</span>
+        <span onClick={()=>{dispatch({type: "restOneOfItem", payload: {product: item.product, amount: item.amount }})}}>−</span>
         <span>{item.amount}</span>
-        <span onClick={()=>{}}>+</span>
-        <button onClick={()=>{}}>Remove</button>
+        <span onClick={()=>{dispatch({type: "addOneOfItem", payload: {product: item.product, amount: item.amount }})}}>+</span>
+        <button onClick={()=>{dispatch({type: "removeFromCart"})}}>Remove</button>
       </div>
     </div>
+    </>
   )
 }
 

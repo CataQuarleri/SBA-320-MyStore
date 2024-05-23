@@ -5,7 +5,7 @@ import Cart from './Cart.jsx'
 import axios from 'axios'
 
 
-function Navbar({categories, state, setFilteredProducts}) {
+function Navbar({categories, state, setFilteredProducts, dispatch}) {
   const [cartOpen, setCartOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [allProducts, setAllProducts] = useState([])
@@ -56,7 +56,7 @@ function Navbar({categories, state, setFilteredProducts}) {
           <div className={styles.cartIcon} onClick={toggleCart}>🛒</div>
         </div>
       </nav>
-    <Cart cartOpen={cartOpen} toggleCart={toggleCart} state={state}/>
+    <Cart cartOpen={cartOpen} toggleCart={toggleCart} state={state} dispatch={dispatch}/>
     </>
   );
 };

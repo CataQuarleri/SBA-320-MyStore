@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard.jsx'
 
 const BASE_URL = 'https://dummyjson.com/products/category'
 
-function Products() {
+function Products({dispatch}) {
 
     const [products, setProducts]=useState([])
     const [loading, setLoading]=useState(true)
@@ -44,7 +44,7 @@ function loadedProducts(){
     return <h2 style={{color: 'black'}}>No products in this category</h2> 
   }else {
    return products.map(product => {
-      return <ProductCard key={product.id} product={product} />
+      return <ProductCard key={product.id} product={product} dispatch={dispatch}/>
     })
   }
 }
