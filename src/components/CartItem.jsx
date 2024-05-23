@@ -1,6 +1,7 @@
 import styles from './navbar.module.css'
 
 function CartItem({item, dispatch}) {
+
   return (
     <>
       <div style={{color: 'white'}}>{item.product.title}</div>

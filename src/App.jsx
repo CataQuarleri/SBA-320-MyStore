@@ -27,7 +27,7 @@ function App() {
     try{
       let response = await axios.get('https://dummyjson.com/products/category-list')
       if(response.data){
-        let catData = response.data
+        let catData = response.data.filter(p => p.toLowerCase() !== 'mobile-accessories')
         return setCategories(catData)
       }
     }catch(err){

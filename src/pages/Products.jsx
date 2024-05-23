@@ -17,7 +17,7 @@ function Products({dispatch}) {
     categoryStyle = categoryStyle.replace(/\s/, "") //replacing apostrophe and whitespace to fit style name
 
     let categoryName = category.charAt(0).toUpperCase() + category.slice(1) //first letter to upper case
-
+console.log(products)
 
 useEffect(()=>{
 

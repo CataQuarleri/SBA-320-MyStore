@@ -3,7 +3,6 @@ function reducer(state, action){
     switch(action.type){
         case "addToCart":
             let existingItem = state.find(p => p.product.id === action.payload.product.id)
-            console.log(existingItem)
             if(existingItem){
                 return void(state.map(p => {
                     if(p.product.id === action.payload.product.id){
