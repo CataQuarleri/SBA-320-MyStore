@@ -32,7 +32,7 @@ function Navbar({categories, state, setFilteredProducts, dispatch}) {
       setAllProducts(products)
     }
     getProducts()
-    navigate('/search')
+    // navigate('/search')
   }, [searchInput])
 
   return (
