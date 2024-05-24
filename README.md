@@ -20,7 +20,9 @@ SBA-320 E-Commerce is a web application designed to provide users with a seamles
 - **useReducer**: For managing complex state logic in a more predictable and scalable manner.
 
 ## Approach Taken
-The project was approached with a component-based architecture using React. This allowed for modular development and easier management of the application's state and UI. Implemented a mobile-first design strategy to ensure the application is accessible and visually appealing on all devices. Key components include:
+The project was approached with a component-based architecture that separates components from pages. This allowed for modular development and easier management of the application's state and UI. Implemented a mobile-first design strategy to ensure the application is accessible and visually appealing on all devices. Used axios to make requests to external data source [DummyJSON Products API](https://dummyjson.com/)
+
+### Key components include:
 - **Navbar**: Contains the navigation links, search bar, and cart icon.
 - **Cart**: Manages the shopping cart overlay and its interactions. The cart is fully functional, displaying items, prices, total prices and amount of items for each element in cart as well as a remove button and add or take items.
 - **Search**: Displays the search results based on the user's query.
@@ -30,6 +32,7 @@ The project was approached with a component-based architecture using React. This
 - **Product Search**: Users can search for products using the search bar in the navbar. The search term is sent to the `Search` component via URL location state from 'react-router-dom'.
 - **Category Listing**: Products are categorized, and users can view products by category.
 - **Shopping Cart**: Users can add products to the cart, which is managed by the `Cart` component.
+- **Carrousel**: Made from scratch using intervals and useEffect.
 
 ### Login and Signup Functionality
 Due to time constraints, the login and signup functionalities were not fully implemented. However, the foundational code for these features is in place, indicating the planned integration of user authentication. This includes form components and placeholder routes.
