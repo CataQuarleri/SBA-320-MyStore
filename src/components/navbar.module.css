@@ -14,7 +14,7 @@ button {
     justify-content: space-between;
     align-items: center;
     align-content: center;
-    background-color: #15B5A8;
+    background-color: var(--color-1);
     padding: 1.5rem;
     color: white;
     position: relative;
@@ -39,7 +39,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #2196f3;
+    background-color: var(--color-1);
     position: absolute;
     top: 100%;
     left: 0;
@@ -108,9 +108,28 @@ button {
   }
   
   .cartIcon {
+    position: relative;
     font-size: 1.5rem;
     margin-top: 1rem;
     cursor: pointer;
+    margin-left: 2rem
+  }
+
+  .badge {
+    position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-3);
+  color: black;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; /* Adjust as needed */
+  font-weight: bold;
+  transform: translate(50%, 50%);
   }
   
   .cartMenu {
@@ -239,7 +258,7 @@ button {
       left: 0;
       width: 100%;
       flex-direction: column;
-      background-color: #2196f3;
+      background-color: var(--color-1);
     }
   }
   

@@ -53,8 +53,8 @@ return (
     <Route path="/about-us" element={<AboutUs/>}/>
     <Route path="/products/:category" element={<Products dispatch={dispatch}/>} />
     <Route path="/search" element={<Search filteredProducts={filteredProducts} dispatch={dispatch}/>} />
-    <Route path="/login" element={<LogIn/>}/>
-    <Route path="/signup" element={<SignUp/>}/>
+    {/* <Route path="/login" element={<LogIn/>}/> */} 
+    {/* <Route path="/signup" element={<SignUp/>}/> */}
   </Routes>
     </>
   )

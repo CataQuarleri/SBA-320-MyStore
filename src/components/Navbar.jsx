@@ -50,8 +50,8 @@ function Navbar({categories, state, setFilteredProducts, dispatch}) {
                 {categories.map((item, i) =>  <Link key={i} to={`/products/${item}`} className={styles.dropdownLink}>{item?.toUpperCase()}</Link> )}
             </div>
           </div>
-          <Link to="/login" className={styles.link}>LOGIN/SIGNUP</Link>
-          <div className={styles.cartIcon} onClick={toggleCart}>🛒<div>{state.length}</div> </div>
+          {/* <Link to="/login" className={styles.link}>LOGIN/SIGNUP</Link> */}
+          <div className={styles.cartIcon} onClick={toggleCart}>🛒<div className={styles.badge}>{state.length}</div> </div>
         </div>
       </nav>
     <Cart cartOpen={cartOpen} toggleCart={toggleCart} state={state} dispatch={dispatch}/>
