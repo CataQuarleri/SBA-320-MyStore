@@ -20,6 +20,7 @@ function Navbar({categories, state, setFilteredProducts, dispatch}) {
   const handleSearch = (search)=>{
     setSearchInput(search)
     navigate('/search', {state: {query: searchInput}}) //I use the state inside the location of useLocation to access the query in the component
+  
   }
   useEffect(()=>{
     async function getProducts(){
