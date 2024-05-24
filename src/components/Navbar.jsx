@@ -17,22 +17,18 @@ function Navbar({categories, state, setFilteredProducts, dispatch}) {
 
   const logo = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F011%2F098%2F640%2Foriginal%2Fflat-shop-illustration-design-on-transparent-background-free-png.png&f=1&nofb=1&ipt=067bf498a7bda75a9380d31a57a5c2479f3ac7d3332d8178aa8c368a30c17eb8&ipo=images"
 
-  const handleSearch = (search)=>{ //function that sets the filtered products and 
+  const handleSearch = (search)=>{
     setSearchInput(search)
-   let filter = allProducts.filter(oneProduct => {
-      return Object.values(oneProduct).join('').toLowerCase().includes(searchInput.toLowerCase())
-    })
-    setFilteredProducts(filter)
-    navigate('/search')
+    navigate('/search', {state: {query: searchInput}}) //I use the state inside the location of useLocation to access the query in the component
   }
   useEffect(()=>{
     async function getProducts(){
       let response = await axios.get('https://dummyjson.com/products/search?q=' + searchInput)
       let products = response.data.products
-      setAllProducts(products)
+      setFilteredProducts(products)
     }
     getProducts()
-    // navigate('/search')
+ 
   }, [searchInput])
 
   return (
@@ -55,7 +51,7 @@ function Navbar({categories, state, setFilteredProducts, dispatch}) {
             </div>
           </div>
           <Link to="/login" className={styles.link}>LOGIN/SIGNUP</Link>
-          <div className={styles.cartIcon} onClick={toggleCart}>🛒</div>
+          <div className={styles.cartIcon} onClick={toggleCart}>🛒<div>{state.length}</div> </div>
         </div>
       </nav>
     <Cart cartOpen={cartOpen} toggleCart={toggleCart} state={state} dispatch={dispatch}/>
